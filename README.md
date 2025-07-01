@@ -22,7 +22,7 @@ Unleash your creativity! Instantly generate stunning artwork using the power of 
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/lwshakib/ai-image-generator
    cd ai-image-generator
    ```
 2. **Install dependencies:**
