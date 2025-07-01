@@ -82,3 +82,7 @@ See [`prisma/schema.prisma`](prisma/schema.prisma) for full details. Main models
 ## License
 
 MIT
+
+## Demo
+
+![AI Image Generator Demo](assets/demo.gif)
