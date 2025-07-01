@@ -46,20 +46,15 @@ export default function ModalWithCopyPrompt({
     } catch {}
   };
 
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(selected.imageUrl);
-      const blob = await response.blob();
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = `image-${selected.id}.png`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(link.href);
-      setDownloaded(true);
-      setTimeout(() => setDownloaded(false), 1000);
-    } catch {}
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = selected.imageUrl;
+    link.download = `image-${selected.id}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setDownloaded(true);
+    setTimeout(() => setDownloaded(false), 1000);
   };
 
   const handleShare = async () => {
@@ -84,7 +79,7 @@ export default function ModalWithCopyPrompt({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm dark">
-      <div className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-2xl flex flex-col md:flex-row max-w-4xl w-full mx-4 overflow-hidden animate-fadeIn">
+      <div className="relative bg-white dark:bg-neutral-900 rounded-xl shadow-2xl flex flex-col md:flex-row max-w-4xl w-full mx-4 overflow-hidden animate-fadeIn max-h-screen overflow-y-auto hide-scrollbar">
         {/* Close button */}
         <button
           className="absolute top-4 right-4 text-white text-2xl z-10 hover:text-red-400 transition"
