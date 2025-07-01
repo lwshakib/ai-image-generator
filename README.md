@@ -86,3 +86,33 @@ MIT
 ## Demo
 
 ![AI Image Generator Demo](assets/demo.gif)
+
+## Deployment
+
+### Deploying to Vercel
+
+1. **Push your code to GitHub (or GitLab/Bitbucket).**
+2. **Go to [Vercel](https://vercel.com) and create a new project.**
+   - Import your repository.
+   - Set the environment variables in the Vercel dashboard (same as in your `.env` file).
+   - Deploy the project.
+
+### Custom Domains
+
+To use your own domains (e.g., `domain.com` and `app.domain.com`):
+
+1. **Add Domains in Vercel:**
+   - In your Vercel project dashboard, go to the "Domains" tab.
+   - Add `domain.com` and `app.domain.com`.
+2. **Configure DNS on Namecheap:**
+   - Log in to your Namecheap account and go to Domain List > Manage for your domain.
+   - Under the "Advanced DNS" tab, add the following records:
+     - **For root domain (`domain.com`):**
+       - Add a CNAME or ALIAS record pointing to your Vercel domain (e.g., `cname.vercel-dns.com`).
+     - **For subdomain (`app.domain.com`):**
+       - Add a CNAME record for `app` pointing to your Vercel domain (e.g., `cname.vercel-dns.com`).
+   - Vercel will show you the exact values to use for each record.
+3. **Verify on Vercel:**
+   - After updating DNS, return to Vercel and verify the domains. Propagation may take a few minutes to a few hours.
+
+Your app will now be live at both `https://domain.com` and `https://app.domain.com`!
